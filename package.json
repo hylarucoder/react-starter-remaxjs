@@ -1,54 +1,88 @@
 {
-  "name": "react-starter-remaxjs",
+  "name": "react-start",
   "private": true,
   "version": "1.0.0",
   "description": "Starter template for Remax apps",
   "main": "index.js",
   "keywords": [],
-  "author": "twocucao <twocucao@gmail.com>",
+  "author": "Caihuanyu <eterlf41@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "start": "yarn dev",
     "dev": "remax build -t wechat -w",
-    "build": "NODE_ENV=production remax build -t wechat",
+    "build": "remax build -t wechat",
+    "start:prod": "yarn dev:prod",
+    "dev:prod": "NODE_ENV=production remax build -t wechat -w",
+    "build:prod": "NODE_ENV=production remax build -t wechat",
     "clean": "rimraf dist",
     "prebuild": "npm run clean"
   },
   "dependencies": {
-    "react": "^16.12.0",
-    "remax": "^1.11.2",
-    "camelcase-keys": "^6.1.1",
+    "camelcase-keys": "^6.2.1",
     "classnames": "^2.2.6",
-    "dayjs": "^1.8.19",
-    "immer": "^5.3.2",
-    "snakecase-keys": "^3.1.1"
+    "dayjs": "^1.8.23",
+    "mobx": "^5.15.4",
+    "mobx-react-lite": "^1.5.2",
+    "react": "^16.13.1",
+    "remax": "1.19.1",
+    "sentry-mina": "^0.4.4",
+    "snakecase-keys": "^3.1.2",
+    "umtrack-wx": "^2.2.2"
   },
   "devDependencies": {
-    "@types/classnames": "^2.2.9",
+    "@babel/plugin-transform-runtime": "^7.9.0",
+    "@types/classnames": "^2.2.10",
     "@types/lodash": "^4.14.149",
-    "@types/react": "^16.9.17",
-    "@typescript-eslint/eslint-plugin": "^2.16.0",
-    "@typescript-eslint/parser": "^2.16.0",
-    "autoprefixer": "^9.7.4",
+    "@types/react": "^16.9.31",
+    "@typescript-eslint/eslint-plugin": "^2.26.0",
+    "@typescript-eslint/parser": "^2.26.0",
+    "autoprefixer": "^9.7.5",
     "chokidar": "^3.3.1",
-    "copyfiles": "^2.1.1",
+    "copyfiles": "^2.2.0",
     "eslint": "^6.8.0",
-    "eslint-config-airbnb": "^18.0.1",
-    "eslint-config-prettier": "^6.9.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-config-prettier": "^6.10.1",
     "eslint-import-resolver-typescript": "^2.0.0",
-    "eslint-plugin-import": "^2.20.0",
-    "eslint-plugin-jest": "^23.6.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jest": "^23.8.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^3.1.2",
-    "eslint-plugin-react": "^7.17.0",
-    "eslint-plugin-react-hooks": "^2.3.0",
-    "husky": "^4.0.9",
-    "less": "^3.10.3",
-    "lint-staged": "^9.5.0",
-    "node-sass": "^4.13.0",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^3.0.0",
+    "husky": "^4.2.3",
+    "less": "^3.11.1",
+    "lint-staged": "^10.1.1",
+    "node-sass": "^4.13.1",
     "postcss-import": "^12.0.1",
-    "prettier": "^1.19.1",
-    "remax-cli": "^1.11.2",
-    "rimraf": "^3.0.0",
-    "typescript": "^3.7.4"
+    "prettier": "^2.0.2",
+    "remax-cli": "1.19.1",
+    "rimraf": "^3.0.2",
+    "typescript": "^3.8.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,json,graphql,md,ts,tsx}": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.ts": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.tsx": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "engines": {
+    "node": "13.8.0"
   }
 }

@@ -23,5 +23,7 @@
 	"libVersion": "2.3.1",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
+	"appid": "wx6a99746bf50ea978",
+	"projectname": "react-starter-remaxjs",
 	"condition": {}
 }
